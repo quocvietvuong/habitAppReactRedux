@@ -1,8 +1,12 @@
+import { Provider } from "react-redux"
 import './App.css'
+import store from "./store/store"
 
 function App() {
   return (
-    <div>Hey please subscribe to Vinnie!!!!</div>
+    <Provider store={store}>
+      <div>Hey please subscribe to Vinnie!!!!</div>
+    </Provider>
   )
 }
 
