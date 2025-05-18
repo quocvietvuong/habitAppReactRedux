@@ -47,9 +47,18 @@ const habitSlice = createSlice({
         }
       }
 
+    },
+    removeHabit: (
+      state,
+      action: PayloadAction<{ id: string }>
+    ) => {
+      const habitToBeRemovedIndex = state.habits.findIndex((h) => h.id === action.payload.id)
+      if (habitToBeRemovedIndex > -1) {
+        state.habits.splice(habitToBeRemovedIndex, 1)
+      }
     }
   },
 })
 
-export const { addHabit, toggleHabit } = habitSlice.actions
+export const { addHabit, toggleHabit, removeHabit } = habitSlice.actions
 export default habitSlice.reducer

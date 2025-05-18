@@ -4,7 +4,7 @@ import type { AppDispatch, RootState } from "../store/store"
 import { Box, Typography, Paper, Grid, Button } from "@mui/material"
 import CheckCircleIcon from "@mui/icons-material/CheckCircle"
 import DeleteIcon from "@mui/icons-material/Delete"
-import { toggleHabit } from "../store/habit-slice"
+import { toggleHabit, removeHabit } from "../store/habit-slice"
 
 const HabitList: React.FC = () => {
   const { habits } = useSelector((state: RootState) => state.habits)
@@ -59,6 +59,9 @@ const HabitList: React.FC = () => {
                   variant="outlined"
                   color="error"
                   startIcon={<DeleteIcon />}
+                  onClick={() => {
+                    dispatch(removeHabit({id: habit.id}))
+                  }}
                 >
                   Remove
                 </Button>
